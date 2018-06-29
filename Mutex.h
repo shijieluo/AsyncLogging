@@ -2,19 +2,19 @@
 // wrap pthread mutex lock
 #ifndef MUTEX_H
 #define MUTEX_H
-#include<iostream>
-#include<pthread.h>
-#include<assert.h>
-class NonCopyable;
+#include <iostream>
+#include <pthread.h>
+#include <assert.h>
+#include "Noncopyable.h"
 class MutexLock : NonCopyable{
     public:
     MutexLock(){
         pthread_mutex_init(&mutex_, NULL);
     }
-    lock(){
+    void lock(){
         pthread_mutex_lock(&mutex_);
     }
-    unlock(){
+    void unlock(){
         pthread_mutex_unlock(&mutex_);
     }
     ~MutexLock(){
@@ -26,10 +26,10 @@ class MutexLock : NonCopyable{
 };
 clsss MutexLockGuard : NonCopyable{
     public:
-    MutexLockGuard(MutexLock& mutex):mutex_(mutex){
+    MutexLockGuard(MutexLock& mutex):mutex_(mutex) {
         _mutex.lock();
     }
-    ~MutexLockGuard(){
+    ~MutexLockGuard() {
         _mutex.unlock();
     }
     private:

@@ -26,10 +26,11 @@ void Test::*thread_func(void *arg) {
     cond_.notify();
 }
 int main(){
+    Test *t = new Test;
     pthread_t tid[3];
     int a[3] = {1,2,3};    
     for(int i=0; i<3; i++) {
-        pthread_create(&tid[i], NULL, thread_func, static_cast<void*>(&a[i]);
+        pthread_create(&tid[i], NULL, t->thread_func, static_cast<void*>(&a[i]);
     }
     for(int i=0; i<3; i++) {
         pthread_join(&tid[i], NULL);

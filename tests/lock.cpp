@@ -33,7 +33,7 @@ int main(){
         pthread_create(&tid[i], NULL, t->thread_func, static_cast<void*>(&a[i]);
     }
     for(int i=0; i<3; i++) {
-        pthread_join(&tid[i], NULL);
+        pthread_join(tid[i], NULL);
     }
     return 0;
 }

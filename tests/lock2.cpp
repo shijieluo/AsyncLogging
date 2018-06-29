@@ -1,0 +1,1 @@
+// extend lock.cpp using wrapped class Thread

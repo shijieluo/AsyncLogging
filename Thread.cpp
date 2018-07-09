@@ -4,7 +4,7 @@ using namespace std;
 #include "Thread.h"
 #include <assert.h0>
 
-Thread::Thread(threadFunc func, args arg): started_(false),
+Thread::Thread(void* func, void* arg): started_(false),
                                            joined_(false),
                                            tid_(0),func_(func),
                                            arg_(arg){}

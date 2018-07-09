@@ -13,10 +13,8 @@ class Thread : NonCopyable {
     private:
     bool started_;
     bool joined_;
-    pthread_t tid_;
-    typedef void *thread_func threadFunc;
-    typedef void *arg args;
-    threadFunc func_;
-    args arg_;        
+    pthread_t tid_;   
+    void *func_;
+    void *arg_;        
 };
 #endif

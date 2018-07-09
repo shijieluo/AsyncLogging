@@ -1,13 +1,13 @@
 #ifndef BUFFER_H
 #define BUFFER_H
-#define SMALLBUFFER 4000
-#define LARGEBUFFER 4000*1000
 template<class Size>
 class Buffer {
     public:
+    enum {SMALLBUFFER=4096,LARGEBUFFER=4096*1000};    
     Buffer():cur_(data){}
     ~Buffer();
-    char *getCurData() {return cur_;}
+    char *getCurDataPtr() {return cur_ + strlen(data);}
+    int leftSize() {return Size-strlen(data);}
     private:    
     char* cur_;
     char data[Size];        

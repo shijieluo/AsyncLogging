@@ -24,16 +24,15 @@ class MutexLock : NonCopyable{
     pthread_mutex_t mutex_;
     friend class Condition;
 };
-clsss MutexLockGuard : NonCopyable{
+class MutexLockGuard : NonCopyable{
     public:
-    MutexLockGuard(MutexLock& mutex):mutex_(mutex) {
-        _mutex.lock();
+    explicit MutexLockGuard(MutexLock& mutex):mutex_(mutex) {
+        mutex_.lock();
     }
     ~MutexLockGuard() {
-        _mutex.unlock();
+        mutex_.unlock();
     }
     private:
-    MutexLock mutex_;
-
-}
+    MutexLock& mutex_;
+};
 #endif

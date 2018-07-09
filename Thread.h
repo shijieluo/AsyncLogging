@@ -2,13 +2,14 @@
 #ifndef THREAD_H
 #define THREAD_H
 #include<pthread.h>
+#include "NonCopyable.h"
 
-class Thread {
+class Thread : NonCopyable {
     public:
     Thread();
     ~Thread();
-    int start();
-    int join();
+    void start();
+    void join();
     private:
     bool started_;
     bool joined_;

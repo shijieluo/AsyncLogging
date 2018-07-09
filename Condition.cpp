@@ -3,4 +3,6 @@
 #include "Condition.h"
 #include <pthread.h>
 // todo
-void Conditon::waitForSecond(){}
+void Condition::waitForSeconds(){
+
+}

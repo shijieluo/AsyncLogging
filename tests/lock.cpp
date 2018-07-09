@@ -7,21 +7,21 @@
 int global = 1;
 class Test {
     public:
-    Test():mutex_(),cond_(mutex_) {}
-    void *thread_func();
+    Test():mutex_(), cond_(mutex_) {}
+    void *thread_func(void *arg);
     private:
     MutexLock mutex_;
     Condition cond_;
-}
-void Test::*thread_func(void *arg) {
+};
+void* Test::thread_func(void *arg) {
     int local = *(static_cast<int*>(arg));
     {
-        MutexLockGuard(mutex_); 
+        MutexLockGuard mutex(mutex_); 
         if(global != local) {
             cond_.wait();
         }
         global += 1;
-        std::cout << local << endl;
+        std::cout << local << std::endl;
     }
     cond_.notify();
 }
@@ -30,7 +30,7 @@ int main(){
     pthread_t tid[3];
     int a[3] = {1,2,3};    
     for(int i=0; i<3; i++) {
-        pthread_create(&tid[i], NULL, t->thread_func, static_cast<void*>(&a[i]);
+        pthread_create(&tid[i], NULL, t->thread_func, static_cast<void*>(&a[i]));
     }
     for(int i=0; i<3; i++) {
         pthread_join(tid[i], NULL);

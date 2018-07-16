@@ -1,6 +1,7 @@
 #ifndef BUFFER_H
 #define BUFFER_H
 #include "Buffer.cpp"
+#include <string.h>
 enum {SMALLBUFFER=4096,LARGEBUFFER=4096*1000}; 
 template<int Size>
 class Buffer {

@@ -6,6 +6,9 @@
 #include <assert.h>
 #include "Mutex.h"
 #include "NonCopyable.h"
+
+namespace jlog {
+    
 class Condition : NonCopyable{
     public:
     explicit Condition(MutexLock& mutex):mutex_(mutex) {
@@ -28,4 +31,6 @@ class Condition : NonCopyable{
     pthread_cond_t cond_;
     MutexLock& mutex_;
 };
+
+}
 #endif 

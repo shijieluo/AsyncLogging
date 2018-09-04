@@ -2,6 +2,8 @@
 #define NONCOPYABLE_H
 #include<iostream>
 
+namespace jlog {
+    
 class NonCopyable {
     private:
     NonCopyable(const NonCopyable& object){}
@@ -9,4 +11,6 @@ class NonCopyable {
     NonCopyable(){}
     virtual ~NonCopyable(){}
 };
+
+}
 #endif

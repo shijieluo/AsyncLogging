@@ -3,11 +3,15 @@
 #include <iostream>
 #include <fstream>
 #include <memory>
+#include <string>
 #include "Buffer.h"
-//not thread safe
+
+
+namespace jlog {
+
 class LogStream {
     public:
-    LogStream(char *filename);   
+    LogStream(const std::string& filename);   
     ~LogStream();
     template<int Size>
     void flushLog(std::unique_ptr<Buffer<Size> > &pBuffer);
@@ -15,9 +19,6 @@ class LogStream {
     private:
     std::ofstream of_;
 };
-template<int Size>
-void LogStream::flushLog(std::unique_ptr<Buffer<Size> > &pBuffer) {    
-    of_ << pBuffer.get();
-    of_.flush();
+
 }
 #endif

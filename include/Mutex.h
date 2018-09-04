@@ -5,7 +5,12 @@
 #include <iostream>
 #include <pthread.h>
 #include <assert.h>
-#include "Noncopyable.h"
+#include "NonCopyable.h"
+
+
+namespace jlog {
+
+
 class MutexLock : NonCopyable{
     public:
     MutexLock(){
@@ -35,4 +40,6 @@ class MutexLockGuard : NonCopyable{
     private:
     MutexLock& mutex_;
 };
+
+}
 #endif

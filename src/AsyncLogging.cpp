@@ -1,11 +1,13 @@
 #include "AsyncLogging.h"
 #include "Mutex.h"
-#include "logStream.h"
+#include "LogStream.h"
 
+namespace jlog {
+    
 void AsyncLogging::append(char* logLine, int len) {
     MutexLockGuard mutex(mutex_);
     if(len <= currentBuffer_->leftSize()) {
-        currentBuffer->append(logLine, len);
+        currentBuffer_->append(logLine, len);
     }else {
         full_.push(pBuffer(currentBuffer_.release()));
         if(empty_.size()) {
@@ -18,8 +20,8 @@ void AsyncLogging::append(char* logLine, int len) {
     }    
 }
 
-void *thread_func(void *arg){
-    LogStream output(filename);    
+void AsyncLogging::thread_func(){
+    LogStream output(filename_);    
     while(1) {
         {
             MutexLockGuard mutex(mutex_);
@@ -36,4 +38,7 @@ void *thread_func(void *arg){
             }
         }
     }
+}
+
+
 }

@@ -1,3 +1,10 @@
+# vscode config
+.vscode/
+
+# cmake
+build/
+CMakeFiles/
+
 # Prerequisites
 *.d
 

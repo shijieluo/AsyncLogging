@@ -1,2 +1,2 @@
 # AsyncLogging
-implement an AsyncLog System, which uses ring buffer
+Implement an asynchronous logging system, which uses ring buffer.

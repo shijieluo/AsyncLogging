@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named aysnclogging_test
+
+# Build rule for target.
+aysnclogging_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 aysnclogging_test
+.PHONY : aysnclogging_test
+
+# fast build rule for target.
+aysnclogging_test/fast:
+	$(MAKE) -f CMakeFiles/aysnclogging_test.dir/build.make CMakeFiles/aysnclogging_test.dir/build
+.PHONY : aysnclogging_test/fast
+
+#=============================================================================
 # Target rules for targets named jlog
 
 # Build rule for target.
@@ -231,6 +244,33 @@ src/LogStream.cpp.s:
 	$(MAKE) -f CMakeFiles/jlog.dir/build.make CMakeFiles/jlog.dir/src/LogStream.cpp.s
 .PHONY : src/LogStream.cpp.s
 
+src/Logger.o: src/Logger.cpp.o
+
+.PHONY : src/Logger.o
+
+# target to build an object file
+src/Logger.cpp.o:
+	$(MAKE) -f CMakeFiles/jlog.dir/build.make CMakeFiles/jlog.dir/src/Logger.cpp.o
+.PHONY : src/Logger.cpp.o
+
+src/Logger.i: src/Logger.cpp.i
+
+.PHONY : src/Logger.i
+
+# target to preprocess a source file
+src/Logger.cpp.i:
+	$(MAKE) -f CMakeFiles/jlog.dir/build.make CMakeFiles/jlog.dir/src/Logger.cpp.i
+.PHONY : src/Logger.cpp.i
+
+src/Logger.s: src/Logger.cpp.s
+
+.PHONY : src/Logger.s
+
+# target to generate assembly for a file
+src/Logger.cpp.s:
+	$(MAKE) -f CMakeFiles/jlog.dir/build.make CMakeFiles/jlog.dir/src/Logger.cpp.s
+.PHONY : src/Logger.cpp.s
+
 src/Thread.o: src/Thread.cpp.o
 
 .PHONY : src/Thread.o
@@ -258,6 +298,60 @@ src/Thread.cpp.s:
 	$(MAKE) -f CMakeFiles/jlog.dir/build.make CMakeFiles/jlog.dir/src/Thread.cpp.s
 .PHONY : src/Thread.cpp.s
 
+src/jlog.o: src/jlog.cpp.o
+
+.PHONY : src/jlog.o
+
+# target to build an object file
+src/jlog.cpp.o:
+	$(MAKE) -f CMakeFiles/jlog.dir/build.make CMakeFiles/jlog.dir/src/jlog.cpp.o
+.PHONY : src/jlog.cpp.o
+
+src/jlog.i: src/jlog.cpp.i
+
+.PHONY : src/jlog.i
+
+# target to preprocess a source file
+src/jlog.cpp.i:
+	$(MAKE) -f CMakeFiles/jlog.dir/build.make CMakeFiles/jlog.dir/src/jlog.cpp.i
+.PHONY : src/jlog.cpp.i
+
+src/jlog.s: src/jlog.cpp.s
+
+.PHONY : src/jlog.s
+
+# target to generate assembly for a file
+src/jlog.cpp.s:
+	$(MAKE) -f CMakeFiles/jlog.dir/build.make CMakeFiles/jlog.dir/src/jlog.cpp.s
+.PHONY : src/jlog.cpp.s
+
+src/tests/AsyncLogging_test.o: src/tests/AsyncLogging_test.cpp.o
+
+.PHONY : src/tests/AsyncLogging_test.o
+
+# target to build an object file
+src/tests/AsyncLogging_test.cpp.o:
+	$(MAKE) -f CMakeFiles/aysnclogging_test.dir/build.make CMakeFiles/aysnclogging_test.dir/src/tests/AsyncLogging_test.cpp.o
+.PHONY : src/tests/AsyncLogging_test.cpp.o
+
+src/tests/AsyncLogging_test.i: src/tests/AsyncLogging_test.cpp.i
+
+.PHONY : src/tests/AsyncLogging_test.i
+
+# target to preprocess a source file
+src/tests/AsyncLogging_test.cpp.i:
+	$(MAKE) -f CMakeFiles/aysnclogging_test.dir/build.make CMakeFiles/aysnclogging_test.dir/src/tests/AsyncLogging_test.cpp.i
+.PHONY : src/tests/AsyncLogging_test.cpp.i
+
+src/tests/AsyncLogging_test.s: src/tests/AsyncLogging_test.cpp.s
+
+.PHONY : src/tests/AsyncLogging_test.s
+
+# target to generate assembly for a file
+src/tests/AsyncLogging_test.cpp.s:
+	$(MAKE) -f CMakeFiles/aysnclogging_test.dir/build.make CMakeFiles/aysnclogging_test.dir/src/tests/AsyncLogging_test.cpp.s
+.PHONY : src/tests/AsyncLogging_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -265,6 +359,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... aysnclogging_test"
 	@echo "... edit_cache"
 	@echo "... jlog"
 	@echo "... src/AsyncLogging.o"
@@ -279,9 +374,18 @@ help:
 	@echo "... src/LogStream.o"
 	@echo "... src/LogStream.i"
 	@echo "... src/LogStream.s"
+	@echo "... src/Logger.o"
+	@echo "... src/Logger.i"
+	@echo "... src/Logger.s"
 	@echo "... src/Thread.o"
 	@echo "... src/Thread.i"
 	@echo "... src/Thread.s"
+	@echo "... src/jlog.o"
+	@echo "... src/jlog.i"
+	@echo "... src/jlog.s"
+	@echo "... src/tests/AsyncLogging_test.o"
+	@echo "... src/tests/AsyncLogging_test.i"
+	@echo "... src/tests/AsyncLogging_test.s"
 .PHONY : help
 
 

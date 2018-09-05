@@ -27,16 +27,24 @@ SET( CMAKE_CXX_FLAGS "-O3 -std=c++11" )
 
 set(LOG_SRC ${AsyncLogging_SOURCE_DIR}/src)
 set(LOG_INCLUDE ${AsyncLogging_SOURCE_DIR}/include)
-set(LOG_TEST_SRC ${AsyncLogging_SOURCE_DIR}/src/tests)
+set(LOG_TEST_DIR ${AsyncLogging_SOURCE_DIR}/src/tests)
 
 file(GLOB SRC_FILES ${LOG_SRC}/*.cpp ${LOG_SRC}/*.cc)
 file(GLOB HEADER_FILES ${LOG_INCLUDE}/*.h ${LOG_INCLUDE}/*.hpp)
 
 set(AsyncLogging_Library jlog)
-message(STATUS "src files:" ${SRC_FILES})
+#message(STATUS "src files:" ${SRC_FILES})
 include_directories(${LOG_INCLUDE})
 add_library(${AsyncLogging_Library} SHARED ${SRC_FILES} ${HEADER_FILES})
+target_link_libraries(${AsyncLogging_Library} pthread)
 set_target_properties(${AsyncLogging_Library} PROPERTIES LINKER_LANGUAGE CXX)
+
+# mutelock test
 #include_directories(${LOG_INCLUDE})
-#add_executable(lock ${LOG_TEST_SRC}/lock.cpp ${HEADER_FILES})
+#add_executable(lock ${LOG_TEST_DIR}/lock.cpp ${HEADER_FILES})
 #set_target_properties(lock PROPERTIES LINKER_LANGUAGE CXX)
+
+# aysnclogging test
+include_directories(${LOG_INCLUDE})
+link_libraries(${AsyncLogging_Library})
+add_executable(aysnclogging_test ${LOG_TEST_DIR}/AsyncLogging_test.cpp)

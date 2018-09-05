@@ -20,5 +20,13 @@ class LogStream {
     std::ofstream of_;
 };
 
+template<int Size>
+inline void LogStream::flushLog(std::unique_ptr<Buffer<Size>> &pBuffer) {    
+    of_ << pBuffer->getBuffer();
+    std::cout << "flush logmessage:" << pBuffer->getBuffer()<< std::endl;
+    of_.flush();
+}
+
+
 }
 #endif

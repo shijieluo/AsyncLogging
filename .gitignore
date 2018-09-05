@@ -4,6 +4,7 @@
 # cmake
 build/
 CMakeFiles/
+*.swp
 
 # Prerequisites
 *.d

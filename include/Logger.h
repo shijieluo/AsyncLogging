@@ -9,7 +9,7 @@ namespace jlog {
     struct Logger {        
         Logger(const char *file, const int line, const char *function, LEVEL level);
         virtual ~Logger();
-        std::ostringstream& stream() {return &os_};        
+        std::ostringstream& stream() {return os_;}       
         std::ostringstream os_;
         const char *file_;
         const int line_;
@@ -17,9 +17,6 @@ namespace jlog {
         LEVEL level_;  
          
     };
-
-
-
 }
 
 

@@ -170,8 +170,8 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-//Dependencies for target
-jlog_LIB_DEPENDS:STATIC=
+//Dependencies for the target
+jlog_LIB_DEPENDS:STATIC=general;pthread;
 
 
 ########################
